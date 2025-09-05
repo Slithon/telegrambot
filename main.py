@@ -14,15 +14,9 @@ if not os.path.exists(fname):
 with open(fname, "r", encoding="utf-8") as f:
     text = f.read()
 
-if not text.strip():
-    print("Файл порожній."); raise SystemExit(0)
-
 bot = telebot.TeleBot(TOKEN)
 
 with open(fname, "r", encoding="utf-8") as f:
     text = f.read()
+bot.send_message(CHAT_ID, text)
 
-if text.strip():
-    bot.send_message(CHAT_ID, text)
-else:
-    print("Файл порожній.")
